@@ -47,7 +47,7 @@ app_img = Image.open('socio.png')
 app_img = app_img.resize((45,45))
 app_img = ImageTk.PhotoImage(app_img)
 
-app_logo = Label(frametitulo, image=app_img, text=' Banco de Dados CBPCE', width=900, compound=LEFT, relief=RAISED, anchor=NW, font=('Verdana 20 bold'), bg=co1, fg=co4)
+app_logo = Label(frametitulo, image=app_img, text=' Banco de Dados', width=900, compound=LEFT, relief=RAISED, anchor=NW, font=('Verdana 20 bold'), bg=co1, fg=co4)
 app_logo.place(x=0, y=0)
 
 # Formulário(Frame Meio)
@@ -87,6 +87,42 @@ l_serie = Label(frameform, text="Número de Série", height=1, anchor=NW, font=(
 l_serie.place(x=10, y=190)
 e_serie = Entry(frameform, width=30, justify='left', relief=SOLID)
 e_serie.place(x=130, y=191)
+
+# Criando os botões
+# Botão Carregar Logo
+l_carregar_imagem = Label(frameform, text="Logo da Empresa", height=1, anchor=NW, font=('Ivy 10 bold'), bg=co1, fg=co4)
+l_carregar_imagem.place(x=10, y=220)
+b_carregar_imagem = Button(frameform, width=30, text="Carregar", compound=CENTER, anchor=CENTER, overrelief=RIDGE, font=('Ivy 8'), bg=co1, fg=co0)
+b_carregar_imagem.place(x=130, y=221)
+
+# Botão Adicionar ou Inserir
+img_add = Image.open('add.png')
+img_add = img_add.resize((20,20))
+img_add = ImageTk.PhotoImage(img_add)
+b_inserir = Button(frameform, image=img_add, width=95, text=" Adicionar", compound=LEFT, anchor=NW, overrelief=RIDGE, font=('Ivy 8'), bg=co1, fg=co0)
+b_inserir.place(x=330, y=10)
+
+# Botão Atualizar
+img_update = Image.open('update.png')
+img_update = img_update.resize((20,20))
+img_update = ImageTk.PhotoImage(img_update)
+b_update = Button(frameform, image=img_update, width=95, text=" Atualizar", compound=LEFT, anchor=NW, overrelief=RIDGE, font=('Ivy 8'), bg=co1, fg=co0)
+b_update.place(x=330, y=50)
+
+# Botão Deletar
+img_delete = Image.open('delete.png')
+img_delete = img_delete.resize((20,20))
+img_delete = ImageTk.PhotoImage(img_delete)
+b_delete = Button(frameform, image=img_delete, width=95, text=" Deletar", compound=LEFT, anchor=NW, overrelief=RIDGE, font=('Ivy 8'), bg=co1, fg=co0)
+b_delete.place(x=330, y=90)
+
+# Botão Ver Logo
+img_logo = Image.open('logo.png')
+img_logo = img_logo.resize((20,20))
+img_logo = ImageTk.PhotoImage(img_logo)
+b_logo = Button(frameform, image=img_logo, width=95, text=" Ver Logo", compound=LEFT, anchor=NW, overrelief=RIDGE, font=('Ivy 8'), bg=co1, fg=co0)
+b_logo.place(x=330, y=221)
+
 
 
 janela.mainloop()
