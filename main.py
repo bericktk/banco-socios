@@ -123,6 +123,17 @@ img_logo = ImageTk.PhotoImage(img_logo)
 b_logo = Button(frameform, image=img_logo, width=95, text=" Ver Logo", compound=LEFT, anchor=NW, overrelief=RIDGE, font=('Ivy 8'), bg=co1, fg=co0)
 b_logo.place(x=330, y=221)
 
+# Valores das Mensalidades
+l_total = Label(frameform, text=" ", width=14, height=2, anchor=CENTER, font=('Ivy 17 bold'), bg=co7, fg=co1)
+l_total.place(x=450, y=17)
+l_total_ = Label(frameform, text="    Valor Total Mensalidades     ", height=1, anchor=NW, font=('Ivy 10 bold'), bg=co7, fg=co1)
+l_total_.place(x=450, y=12)
+
+# Quantidade de Sócios
+l_quantidade = Label(frameform, text=" ", width=14, height=2, anchor=CENTER, font=('Ivy 17 bold'), bg=co7, fg=co1)
+l_quantidade.place(x=450, y=90)
+l_quantidade_ = Label(frameform, text="   Total de Sócios     ", height=1, anchor=NW, font=('Ivy 10 bold'), bg=co7, fg=co1)
+l_quantidade_.place(x=450, y=92)
 
 
 janela.mainloop()
