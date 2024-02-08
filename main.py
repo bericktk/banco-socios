@@ -130,10 +130,62 @@ l_total_ = Label(frameform, text="    Valor Total Mensalidades     ", height=1, 
 l_total_.place(x=450, y=12)
 
 # Quantidade de Sócios
-l_quantidade = Label(frameform, text=" ", width=14, height=2, anchor=CENTER, font=('Ivy 17 bold'), bg=co7, fg=co1)
+l_quantidade = Label(frameform, text=" ", width=14, height=2, pady=10, anchor=CENTER, font=('Ivy 17 bold'), bg=co7, fg=co1)
 l_quantidade.place(x=450, y=90)
 l_quantidade_ = Label(frameform, text="   Total de Sócios     ", height=1, anchor=NW, font=('Ivy 10 bold'), bg=co7, fg=co1)
 l_quantidade_.place(x=450, y=92)
+
+
+# Criando uma tabela para apresentar os sócios
+tabela_head = ['#Item','Nome',  'Empresa','Descrição', 'Marca', 'Data de Associação','Mensalidade', 'Número de série']
+
+lista_itens = []
+
+global tree
+
+tree = ttk.Treeview(framebaixo, selectmode="extended",columns=tabela_head, show="headings")
+
+# Vertical Scrollbar
+vsb = ttk.Scrollbar(framebaixo, orient="vertical", command=tree.yview)
+
+# Horizontal Scrollbar
+hsb = ttk.Scrollbar(framebaixo, orient="horizontal", command=tree.xview)
+
+tree.configure(yscrollcommand=vsb.set, xscrollcommand=hsb.set)
+tree.grid(column=0, row=0, sticky='nsew')
+vsb.grid(column=1, row=0, sticky='ns')
+hsb.grid(column=0, row=1, sticky='ew')
+framebaixo.grid_rowconfigure(0, weight=12)
+
+hd=["center","center","center","center","center","center","center", 'center']
+h=[40,150,100,160,130,100,100, 100]
+n=0
+
+for col in tabela_head:
+    tree.heading(col, text=col.title(), anchor=CENTER)
+    #adjust the column's width to the header string
+    tree.column(col, width=h[n],anchor=hd[n])
+    n+=1
+
+
+# Inserindo os itens dentro da tabela
+for item in lista_itens:
+    tree.insert('', 'end', values=item)
+
+
+quantidade = [8888]
+
+for iten in lista_itens:
+    quantidade.append(iten[6])
+
+Total_valor = sum(quantidade)
+Total_itens = len(quantidade)
+
+l_total['text'] = 'R$ {:.2f}'.format(Total_valor)
+l_quantidade['text'] = Total_itens
+
+
+
 
 
 janela.mainloop()
